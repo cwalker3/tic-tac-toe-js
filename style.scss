@@ -1,0 +1,138 @@
+:root {
+  --board-border: 5px solid #e57c23;
+  --bg-color-primary: #025464;
+  --bg-color-secondary: #e8aa42;
+  --text-color-primary: #f8f1f1;
+  --text-color-secondary: #025464;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  background-color: var(--bg-color-primary);
+
+  .scores {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-color-primary);
+    width: min(500px, 100%);
+  }
+
+  .message {
+    color: var(--text-color-primary);
+    margin-top: 8px;
+  }
+
+  .board {
+    aspect-ratio: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 16px;
+
+    .board-square {
+      font-size: 8rem;
+      position: relative;
+
+      span {
+        color: var(--text-color-primary);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: transform 0.3s;
+      }
+    }
+
+    & :nth-child(n + 4):nth-child(-n + 6) {
+      border-top: var(--board-border);
+      border-bottom: var(--board-border);
+    }
+
+    & :nth-child(2),
+    :nth-child(5),
+    :nth-child(8) {
+      border-left: var(--board-border);
+      border-right: var(--board-border);
+    }
+
+    .selectable:hover {
+      background-color: var(--bg-color-secondary);
+    }
+  }
+
+  .game-options-container {
+    .game-options {
+      .game-mode {
+        select {
+          font-size: 1.1rem;
+        }
+      }
+
+      .name-inputs {
+        input {
+          width: 150px;
+        }
+      }
+    }
+  }
+
+  .game-over-message {
+    margin: 16px;
+  }
+}
+
+.hidden {
+  opacity: 0 !important;
+  visibility: hidden;
+}
+
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: visibility 0.5s, opacity 0.5s;
+  opacity: 100%;
+}
+
+.popup {
+  background-color: var(--bg-color-primary);
+  position: relative;
+  box-shadow: 0px 3px 15px rgba(255, 255, 255, 0.3);
+  z-index: 99;
+  color: var(--text-color-primary);
+  border-radius: 15px;
+  margin: 128px auto;
+  width: min(90%, 600px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  padding-bottom: 16px;
+}
+
+button {
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 4px;
+}
+
+@media (orientation: landscape) {
+  .board {
+    height: 80%;
+  }
+}
+
+@media (orientation: portrait) {
+  .board {
+    width: 95%;
+  }
+}

@@ -10,6 +10,52 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  
+  <div class="scores">
+    <div class="player1-score">Player 1: 999</div>
+    <div class="player2-score">Player 2: 999</div>
+  </div>
+  <div class="message">
+    Player 1's Turn
+  </div>
+  <div class="board">
+    <div class="board-square" data-position="0"><span ></span></div>
+    <div class="board-square" data-position="1"><span></span></div>
+    <div class="board-square" data-position="2"><span></span></div>
+    <div class="board-square" data-position="3"><span></span></div>
+    <div class="board-square" data-position="4"><span></span></div>
+    <div class="board-square" data-position="5"><span></span></div>
+    <div class="board-square" data-position="6"><span></span></div>
+    <div class="board-square" data-position="7"><span></span></div>
+    <div class="board-square" data-position="8"><span></span></div>
+  </div>
+  <div class="game-options-container popup-container">
+    <div class="game-options popup">
+      <h1>Tic Tac Toe</h1>
+      <div class="game-mode">
+        <select id="mode">
+          <option value="player">Player vs Player</option>
+          <!-- <option value="easy">Player vs Computer(easy)</option> -->
+          <!-- <option value="hard">Player vs Computer(hard)</option> -->
+        </select>
+      </div>
+      <div class="name-inputs">
+        <div class="player">
+          <input type="text" id="player-one-name" placeholder="Player 1">
+        </div>
+        <div class="player">
+          <input type="text" id="player-two-name" placeholder="Player 2">
+        </div>
+      </div>
+      <button class="start">Start Game</button>
+    </div>
+  </div>
+  <div class="game-over-container popup-container hidden">
+    <div class="game-over popup">
+      <div class="game-over-message">Player 1 Wins!</div>
+      <button class="rematch">Rematch</button>
+      <button class="new">New Game</button>
+    </div>
+  </div>
+
 </body>
 </html>
